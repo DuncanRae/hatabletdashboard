@@ -1,0 +1,1060 @@
+type: picture-elements
+elements:
+  - type: state-badge
+    entity: person.duncan_rae
+    style:
+      top: 8.5%
+      left: 10%
+      width: 20%
+  - entity: binary_sensor.duncans_macbook_pro_microphone_in_use
+    title: Duncan Meeting Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/DInMeeting.png
+    style:
+      left: 3.5%
+      top: 5.5%
+      width: 7%
+      opacity: 1
+    type: image
+  - type: state-badge
+    entity: person.erin_rae
+    style:
+      top: 8.5%
+      left: 16.5%
+      width: 20%
+  - type: state-badge
+    entity: person.brandon_rae
+    style:
+      top: 8.5%
+      left: 23.1%
+      width: 20%
+  - type: state-badge
+    entity: person.kyle_rae
+    style:
+      top: 8.5%
+      left: 29.5%
+      width: 20%
+  - entity: input_boolean.chore_toggle
+    title: Brandon Dog Poo Chore Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/drinks.png
+    state_image:
+      'on': /local/lovelace/overlay/poop-emoji.png
+    style:
+      left: 18.5%
+      top: 3%
+      width: 2.2%
+      opacity: 1
+    type: image
+  - entity: input_boolean.chore_toggle
+    title: Kyle Dog Poo Chore Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/poop-emoji.png
+    state_image:
+      'on': /local/lovelace/overlay/drinks.png
+    style:
+      left: 25.5%
+      top: 3%
+      width: 2.2%
+      opacity: 1
+    type: image
+  - type: custom:button-card
+    entity: cover.front_gate
+    icon: mdi:gate
+    style:
+      top: 52.6%
+      left: 6.2%
+      width: 12.75%
+    tap_action:
+      action: toggle
+      confirmation:
+        text: >-
+          Are you sure you want to '[[[
+          {{states('input_text.gate_state_for_confirmation_box')}} ]]]' the
+          gate?
+    hold_action:
+      action: toggle
+    entity_id: cover.front_gate
+    show_state: true
+    state:
+      - value: closed
+        color: green
+        icon: mdi:gate
+      - value: open
+        color: red
+        icon: mdi:gate-open
+  - type: custom:button-card
+    entity: cover.garage_door
+    icon: mdi:garage
+    style:
+      top: 52.6%
+      left: 19.1%
+      width: 12.75%
+    tap_action:
+      action: none
+    hold_action:
+      action: toggle
+    entity_id: cover.garage_door
+    show_state: true
+    state:
+      - value: closed
+        color: green
+        icon: mdi:garage
+      - value: open
+        color: red
+        icon: mdi:garage-open
+  - type: custom:button-card
+    entity: switch.swimming_pool_pump_45
+    icon: mdi:air-filter
+    style:
+      top: 37.2%
+      left: 21.6%
+      width: 8.6%
+    tap_action:
+      action: toggle
+    hold_action:
+      action: toggle
+    entity_id: switch.swimming_pool_pump_45
+    show_state: false
+    state:
+      - value: 'off'
+        color: green
+        icon: mdi:air-filter
+      - value: 'on'
+        color: red
+        icon: mdi:air-filter
+  - type: custom:button-card
+    entity: switch.sonoff_100110594f
+    icon: mdi:pump
+    style:
+      top: 37.2%
+      left: 12.85%
+      width: 8.6%
+    tap_action:
+      action: toggle
+    hold_action:
+      action: toggle
+    entity_id: switch.sonoff_100110594f
+    show_state: false
+    state:
+      - value: 'off'
+        color: green
+        icon: mdi:pump
+      - value: 'on'
+        color: yellow
+        icon: mdi:pump
+  - type: custom:button-card
+    entity: group.backyard_lights
+    icon: mdi:lightbulb
+    style:
+      top: 37.2%
+      left: 4.1%
+      width: 8.6%
+    tap_action:
+      action: toggle
+    hold_action:
+      action: toggle
+    entity_id: group.backyard_lights
+    show_state: false
+    state:
+      - value: 'off'
+        color: green
+        icon: mdi:lightbulb
+      - value: 'on'
+        color: yellow
+        icon: mdi:lightbulb
+  - type: custom:simple-weather-card
+    entity: weather.43_links_2
+    name: ' '
+    primary_info:
+      - precipitation_probability
+    style:
+      top: 24%
+      left: 12.8%
+      width: 25.5%
+    tap_action:
+      action: navigate
+      navigation_path: /rae-dashboard/weather
+  - type: custom:canvas-gauge-card
+    entity: sensor.main_tank_percent
+    font_size: 1em
+    style:
+      top: 81%
+      left: 6.4%
+      width: 18.95%
+    gauge:
+      animatedValue: true
+      borders: true
+      colorBorderInner: '#111'
+      colorBorderInnerEnd: '#333'
+      colorBorderMiddle: '#222'
+      colorBorderMiddleEnd: '#111'
+      colorBorderOuter: '#333'
+      colorBorderOuterEnd: '#111'
+      colorNumbers: '#ccc'
+      colorPlate: ''
+      colorTitle: '#f5f5f5'
+      colorUnits: '#f5f5f5'
+      height: 200
+      highlights:
+        - color: rgba(255, 0, 12, .75)
+          from: 0
+          to: 20
+        - color: rgba(255, 255, 0, .75)
+          from: 20
+          to: 40
+        - color: rgba(191, 255, 24, 1)
+          from: 40
+          to: 70
+        - color: rgba(4, 205, 24, 1)
+          from: 70
+          to: 100
+      majorTicks:
+        - '10'
+        - '20'
+        - '30'
+        - '40'
+        - '50'
+        - '60'
+        - '70'
+        - '80'
+        - '90'
+        - '100'
+      maxValue: 100
+      minValue: 0
+      minorTicks: 5
+      startAngle: 45
+      strokeTicks: true
+      ticksAngle: 270
+      title: Rain Tanks Level
+      type: linear-gauge
+      units: '%'
+      valueBox: true
+      valueDec: 1
+      valueInt: 2
+      width: 128
+  - type: custom:button-card
+    entity: alarm_control_panel.area_1
+    icon: mdi:Security
+    style:
+      top: 71.5%
+      left: 19.1%
+      width: 12.7%
+    tap_action:
+      action: navigate
+      navigation_path: /rae-dashboard/alarm
+    hold_action:
+      action: more-info
+    entity_id: alarm_control_panel.area_1
+    show_state: true
+    title: Alarm
+    state:
+      - value: disarmed
+        color: green
+        icon: mdi:security
+      - value: armed_home
+        color: yellow
+        icon: mdi:security
+      - value: armed_night
+        color: purple
+        icon: mdi:security
+      - value: armed_away
+        color: red
+        icon: mdi:security
+  - type: custom:button-card
+    entity: input_boolean.guest_mode
+    icon: /local/guest2.png
+    style:
+      top: 90.5%
+      left: 19.1%
+      width: 12.7%
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    entity_id: input_boolean.guest_mode
+    show_state: true
+    title: Guest Mode
+    state:
+      - value: 'off'
+        color: green
+        icon: mdi:account-multiple
+      - value: 'on'
+        color: yellow
+        icon: mdi:account-multiple-plus
+  - type: custom:canvas-gauge-card
+    entity: sensor.poolsense_temperature
+    font_size: 1em
+    style:
+      top: 88%
+      left: 33.6%
+      width: 20%
+    gauge:
+      animatedValue: true
+      borders: true
+      colorBorderInner: '#111'
+      colorBorderInnerEnd: '#333'
+      colorBorderMiddle: '#222'
+      colorBorderMiddleEnd: '#111'
+      colorBorderOuter: '#333'
+      colorBorderOuterEnd: '#111'
+      colorNumbers: '#ccc'
+      colorPlate: ''
+      colorTitle: '#f5f5f5'
+      colorUnits: '#f5f5f5'
+      height: 200
+      highlights:
+        - color: rgba(8, 6, 138, 1)
+          from: 5
+          to: 17
+        - color: rgba(0, 68, 255, .75)
+          from: 17
+          to: 22
+        - color: rgba(0, 255, 221, .75)
+          from: 22
+          to: 28
+        - color: rgba(4, 205, 24, 1)
+          from: 28
+          to: 31
+        - color: rgba(255, 0, 12, .75)
+          from: 31
+          to: 40
+      majorTicks:
+        - '5'
+        - '10'
+        - '15'
+        - '20'
+        - '25'
+        - '30'
+        - '35'
+        - '40'
+      maxValue: 40
+      minValue: 5
+      minorTicks: 5
+      startAngle: 45
+      strokeTicks: true
+      ticksAngle: 270
+      title: Pool Temp
+      type: radial-gauge
+      units: °C
+      valueBox: true
+      valueDec: 1
+      valueInt: 2
+      width: 128
+  - type: custom:canvas-gauge-card
+    entity: sensor.poolsense_ph
+    font_size: 1em
+    style:
+      top: 88%
+      left: 47%
+      width: 20%
+    gauge:
+      animatedValue: true
+      borders: true
+      colorBorderInner: '#111'
+      colorBorderInnerEnd: '#333'
+      colorBorderMiddle: '#222'
+      colorBorderMiddleEnd: '#111'
+      colorBorderOuter: '#333'
+      colorBorderOuterEnd: '#111'
+      colorNumbers: '#ccc'
+      colorPlate: ''
+      colorTitle: '#f5f5f5'
+      colorUnits: '#f5f5f5'
+      height: 200
+      highlights:
+        - color: rgba(251, 149, 9, 1)
+          from: 4
+          to: 5.2
+        - color: rgba(202, 251, 9, 1)
+          from: 5.2
+          to: 6.5
+        - color: rgba(4, 205, 24, 1)
+          from: 6.5
+          to: 7.8
+        - color: rgba(9, 251, 214, .75)
+          from: 7.8
+          to: 9.3
+        - color: rgba(128, 9, 251, .75)
+          from: 9.3
+          to: 11
+      majorTicks:
+        - '4'
+        - '5'
+        - '6'
+        - '7'
+        - '8'
+        - '9'
+        - '10'
+        - '11'
+      maxValue: 11
+      minValue: 4
+      startAngle: 45
+      strokeTicks: true
+      ticksAngle: 270
+      title: Pool pH
+      type: radial-gauge
+      units: pH
+      valueBox: true
+      valueDec: 1
+      valueInt: 1
+      width: 128
+  - entity: light.garage_lights_43
+    title: Garage Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/GarageLight.png
+    style:
+      left: 41%
+      top: 54%
+      width: 29%
+      opacity: 0.75
+    type: image
+  - entity: cover.garage_door
+    title: Garage Door Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      open: /local/lovelace/overlay/GarageDoorOpen.png
+    style:
+      left: 38%
+      top: 73%
+      width: 21%
+    type: image
+  - entity: light.entrance_vestibule_spot_1
+    title: Entrance Vestibule Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/EntranceVestibule.png
+    style:
+      left: 52%
+      top: 59.5%
+      width: 4.%
+      opacity: 0.75
+    type: image
+  - entity: light.entrance_hall_light_2
+    title: Entrance Hall Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/EntranceHallLight.png
+    style:
+      left: 62.7%
+      top: 52.9%
+      width: 19%
+      opacity: 0.75
+    type: image
+  - entity: light.hue_white_candle_1_2
+    title: Entrance Bathroom
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/EntranceBath.png
+    style:
+      left: 64.9%
+      top: 42.9%
+      width: 3%
+      opacity: 0.75
+    type: image
+  - entity: group.lounge_downlights
+    title: Lounge Downlights Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/LoungeDownlights.png
+    style:
+      left: 62.8%
+      top: 83.6%
+      width: 16%
+      opacity: 0.75
+    type: image
+  - entity: light.hue_filament_bulb_1
+    title: Lounge Filament Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/LoungeFilament.png
+    style:
+      left: 61.8%
+      top: 83.6%
+      width: 16%
+      opacity: 0.75
+    type: image
+  - entity: group.gamesroom_lights
+    title: Games Room Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/GameRoom.png
+    style:
+      left: 39%
+      top: 17%
+      width: 21%
+      opacity: 0.75
+    type: image
+  - entity: light.back_patio_137
+    title: Back Patio Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/BackPatio.png
+    style:
+      left: 60%
+      top: 17%
+      width: 21%
+      opacity: 0.75
+    type: image
+  - entity: fan.sonoff_1000f6ed28
+    title: Back Patio Fan Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/FanTrans.gif
+    state_image:
+      'on': /local/lovelace/overlay/SpinFanTrans.gif
+    style:
+      left: 60%
+      top: 16.2%
+      width: 7%
+    type: image
+  - entity: light.kitchen_filament_bulbs
+    title: Kitchen Filament Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/KitchenFilament.png
+    style:
+      left: 76.5%
+      top: 42.8%
+      width: 12%
+      opacity: 0.75
+    type: image
+  - entity: light.kitchen_cupboard_lights
+    title: Kitchen Cupboard Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/KitchenCupboard.png
+    style:
+      left: 74.7%
+      top: 51.3%
+      width: 6%
+      opacity: 0.75
+    type: image
+  - entity: light.dogs_room_light
+    title: Kitchen Counter Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/KitchenCounter.png
+    style:
+      left: 86.4%
+      top: 42.6%
+      width: 10%
+      opacity: 0.75
+    type: image
+  - entity: switch.sonoff_1001193db1
+    title: Kitchen Center Light Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/KitchenCenter.png
+    style:
+      left: 82.4%
+      top: 44%
+      width: 10%
+      opacity: 0.75
+    type: image
+  - entity: light.kitchen_scullery_light
+    title: Scullery Light Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/Scullery.png
+    style:
+      left: 62.9%
+      top: 35.1%
+      width: 15.5%
+      opacity: 0.75
+    type: image
+  - entity: light.hue_white_lamp_1_2
+    title: Kitchen Table Light Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/KitchenTable.png
+    style:
+      left: 90.4%
+      top: 28.5%
+      width: 10%
+      opacity: 0.75
+    type: image
+  - entity: group.kitchenlounge_downlights
+    title: Kitchen Lounge DownLight Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/KitchenLoungeLights.png
+    style:
+      left: 78.9%
+      top: 25%
+      width: 14%
+      opacity: 0.75
+    type: image
+  - entity: light.brandons_room_light
+    title: Guest Room Light Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/GuestRoomLight.png
+    style:
+      left: 88.8%
+      top: 5.6%
+      width: 19.3%
+      opacity: 0.75
+    type: image
+  - entity: light.hue_white_lamp_1_6
+    title: Guest Bathroom Light Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/GuestBathroomLight.png
+    style:
+      left: 75.4%
+      top: 5.5%
+      width: 6.3%
+      opacity: 0.75
+    type: image
+  - entity: group.study_lights
+    title: Study Light Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/StudyLight.png
+    style:
+      left: 92.9%
+      top: 70.5%
+      width: 11%
+      opacity: 0.75
+    type: image
+  - entity: light.dining_room_dimmer_138
+    title: Dining Room Downlight Light Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/DiningRoomDownlights.png
+    style:
+      left: 79.%
+      top: 78%
+      width: 15%
+      opacity: 0.75
+    type: image
+  - entity: light.dining_room_filament_bulbs
+    title: Dining Room Filament Light Overlay
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    image: /local/lovelace/overlay/1x1_trans.png
+    state_image:
+      'on': /local/lovelace/overlay/DiningroomFilament.png
+    style:
+      left: 77.%
+      top: 78.7%
+      width: 9%
+      opacity: 0.75
+    type: image
+  - entity: group.kitchen_lights
+    title: Kitchen Lights
+    hold_action:
+      action: more-info
+    tap_action:
+      action: toggle
+    image: /local/lovelace/icon/icon_light_spot_off.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/icon/icon_light_spot_on.png
+    style:
+      left: 78.5%
+      top: 46%
+      width: 3%
+    type: image
+  - entity: group.kitchenlounge_lights
+    title: Kitchen-Lounge Lights
+    hold_action:
+      action: more-info
+    tap_action:
+      action: toggle
+    image: /local/lovelace/icon/icon_light_spot_off.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/icon/icon_light_spot_on.png
+    style:
+      left: 84.5%
+      top: 26%
+      width: 3%
+    type: image
+  - entity: light.brandons_room_light
+    title: Guest Room Light
+    hold_action:
+      action: more-info
+    tap_action:
+      action: toggle
+    image: /local/lovelace/icon/icon_light_spot_off.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/icon/icon_light_spot_on.png
+    style:
+      left: 88.5%
+      top: 6%
+      width: 3%
+    type: image
+  - entity: light.hue_white_lamp_1_6
+    title: Guest Bathroom Light
+    hold_action:
+      action: more-info
+    tap_action:
+      action: toggle
+    image: /local/lovelace/icon/icon_light_spot_off.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/icon/icon_light_spot_on.png
+    style:
+      left: 75.5%
+      top: 6%
+      width: 3%
+    type: image
+  - entity: light.back_patio_137
+    title: Back-Patio Lights
+    hold_action:
+      action: more-info
+    tap_action:
+      action: toggle
+    image: /local/lovelace/icon/icon_light_spot_off.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/icon/icon_light_spot_on.png
+    style:
+      left: 60%
+      top: 8%
+      width: 3%
+    type: image
+  - entity: fan.sonoff_1000f6ed28
+    title: Back-Patio Fan
+    hold_action:
+      action: more-info
+    tap_action:
+      action: toggle
+    image: /local/lovelace/icon/icon_fan_off.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/icon/icon_fan_on.png
+    style:
+      left: 60%
+      top: 16%
+      width: 3%
+    type: image
+  - entity: light.dining_room_filament_bulbs
+    title: Dining Room Filament Lights
+    hold_action:
+      action: more-info
+    tap_action:
+      action: toggle
+    image: /local/lovelace/icon/icon_light_feature_off.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/icon/icon_light_feature_on.png
+    style:
+      left: 77.4%
+      top: 73%
+      width: 3%
+    type: image
+  - entity: light.dining_room_dimmer_138
+    title: Dining Room DownLights
+    hold_action:
+      action: more-info
+    tap_action:
+      action: toggle
+    image: /local/lovelace/icon/icon_light_spot_off.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/icon/icon_light_spot_on.png
+    style:
+      left: 77.4%
+      top: 81%
+      width: 3%
+    type: image
+  - entity: group.study_lights
+    title: Study Lights
+    hold_action:
+      action: more-info
+    tap_action:
+      action: toggle
+    image: /local/lovelace/icon/icon_light_spot_off.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/icon/icon_light_spot_on.png
+    style:
+      left: 91.4%
+      top: 71%
+      width: 3%
+    type: image
+  - entity: group.lounge_downlights
+    title: Lounge DownLights
+    hold_action:
+      action: more-info
+    tap_action:
+      action: toggle
+    image: /local/lovelace/icon/icon_light_spot_off.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/icon/icon_light_spot_on.png
+    style:
+      left: 62.4%
+      top: 73%
+      width: 3%
+    type: image
+  - entity: light.hue_filament_bulb_1
+    title: Lounge Filament Bulb
+    hold_action:
+      action: more-info
+    tap_action:
+      action: toggle
+    image: /local/lovelace/icon/icon_light_pendant_off.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/icon/icon_light_pendant_on.png
+    style:
+      left: 62.4%
+      top: 83%
+      width: 3%
+    type: image
+  - entity: light.entrance_hall_light_2
+    title: Entrance Hall Light
+    hold_action:
+      action: more-info
+    tap_action:
+      action: toggle
+    image: /local/lovelace/icon/icon_light_spot_off.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/icon/icon_light_spot_on.png
+    style:
+      left: 60.4%
+      top: 60%
+      width: 3%
+    type: image
+  - entity: light.garage_lights_43
+    title: Garage Light
+    hold_action:
+      action: more-info
+    tap_action:
+      action: toggle
+    image: /local/lovelace/icon/icon_light_spot_off.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/icon/icon_light_spot_on.png
+    style:
+      left: 38.2%
+      top: 56%
+      width: 3%
+    type: image
+  - entity: group.gamesroom_lights
+    title: Games Room Lights
+    hold_action:
+      action: more-info
+    tap_action:
+      action: toggle
+    image: /local/lovelace/icon/icon_light_spot_off.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/icon/icon_light_spot_on.png
+    style:
+      left: 39.4%
+      top: 18%
+      width: 3%
+    type: image
+  - entity: light.entrance_vestibule_spot_1
+    title: Entrance Vestibule Light
+    hold_action:
+      action: more-info
+    tap_action:
+      action: toggle
+    image: /local/lovelace/icon/icon_light_spot_off.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/icon/icon_light_spot_on.png
+    style:
+      left: 52.1%
+      top: 58.5%
+      width: 3%
+    type: image
+  - type: custom:now-playing-poster
+    entity: media_player.lounge_apple_tv
+    style:
+      width: 7%
+      top: 84%
+      left: 66%
+      transform: rotate(90deg) rotateX(55deg)
+  - type: custom:now-playing-poster
+    entity: media_player.kitchen_lounge_apple_tv
+    style:
+      width: 7%
+      top: 12%
+      left: 76%
+      transform: rotateX(-40deg)
+    tap_action:
+      action: more-info
+  - entity: media_player.lounge_apple_tv
+    title: Lounge TV Control
+    tap_action:
+      action: more-info
+    hold_action:
+      action: call-service
+      service: browser_mod.popup
+      service_data:
+        card:
+          type: vertical-stack
+          cards:
+            - type: custom:mini-media-player
+              entity: media_player.lounge_tv
+              source: icon
+              artwork: cover
+              hide:
+                power: true
+                icon: true
+      deviceID:
+        - this
+        - rae-dashboard
+    image: /local/lovelace/overlay/50x250_trans.png
+    state_filter:
+      'off': brightness(80%) saturate(0.8)
+      'on': brightness(130%) saturate(1.5)
+    state_image:
+      'on': /local/lovelace/overlay/50x250_trans.png
+    style:
+      left: 68.9%
+      top: 87.4%
+      width: 2.5%
+    type: image
+  - entity: sensor.games_room_temperature
+    style:
+      top: 26.3%
+      left: 39.3%
+      font-size: 10px
+    type: state-badge
+  - entity: climate.upstairs
+    title: null
+    tap_action:
+      action: more-info
+    image: /local/lovelace/overlay/50x50_trans.png
+    style:
+      top: 26.3%
+      left: 39.3%
+      width: 4%
+    type: image
+image: /local/lovelace/floorplan/GroundFloor.png
