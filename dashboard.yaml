@@ -175,7 +175,7 @@ elements:
         color: yellow
         icon: mdi:lightbulb
   - type: custom:simple-weather-card
-    entity: weather.43_links_2
+    entity: weather.address
     name: ' '
     primary_info:
       - precipitation_probability
